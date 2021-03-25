@@ -1,0 +1,71 @@
+<!--Charset, Google Translate blocking, favicon and some other stuff-->
+<html id="main" translate="no" lang="en"><head><meta name="google" content="notranslate"><title>Super Mario Maker.NET Build More!</title><meta content="./images/favicon.png" itemprop="image"><link href="./images/favicon.png" rel="shortcut icon"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--Jquery-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!--CSS-->
+<link rel="stylesheet" href="css.css"/>
+<!--Page theme CSS, you can also use this as the base for a new theme, but don't forget to change it back to normal-->
+<style id="pageTheme">
+button {
+	background: radial-gradient(circle, rgba(255,239,107,1) 50%, rgba(255,167,0,1) 100%);
+	border: 1px solid black;
+	border-radius: 5px;
+	color: black;
+}
+button:hover {
+	border: 2px solid white;
+	color: blue;
+}
+#bg {
+	background: linear-gradient(45deg, #ffffbf 0%, #ffdc73 100%);
+}
+input {
+	background: #ffffbf;
+	border: 1px solid black;
+	border-radius: 3px;
+}
+#dialogbox {
+	background: linear-gradient(180deg, rgba(255,250,124,1) 0%, rgba(255,179,64,1) 100%);
+	border: 2px solid black;
+	border-radius: 5px;
+}
+#base div {
+	border: 1px solid black;
+}
+#toolbar td {
+	border: 1px solid black;
+}
+#bsBg {
+	border: 1px solid black;
+}
+* {
+	color: black;
+}
+</style>
+<!--Body start-->
+</head>
+<body onclick="music.play()">
+<!--I know, this is unnecessary, but why not?-->
+<span id="bg"></span>
+<!--Grid base-->
+<table id="base" style="position: absolute;top: 74px; left: 5px"></table>
+<!--Toolbar-->
+<table id="toolbar"><tbody><tr>
+<td><img src="./images/toolbar/grid.png" onclick="showDiag('choice','<input id=\'gridWidth\' value=\'0\' min=\'1\' style=\'width: 100%\' type=\'number\'/><text style=\'font-size: 32px\'>Grid width</text><br><input id=\'gridHeight\' value=\'0\' min=\'1\' style=\'width: 100%\' type=\'number\'/><text style=\'font-size: 32px;\'>Grid height</text><text id=\'err\' style=\'display: none; color: red\'>The width or height provided is 0 or it is not a number</text>','submitGrid()')"/></td>
+<td><img src="./images/toolbar/options.png" onclick="showDiag('ok','Soon')"/></td>
+<td><img src="./images/toolbar/save.png" onclick="if(gridSubmited) showDiag('choice','<input id=\'name\' value=\'My level\' style=\'width: 80%\' />.snetlvl<br><text style=\'font-size: 32px\'>Level name</text>','download()'); else showDiag('ok','Please submit a grid first.')"/></td>
+<td><input onchange="loadData()" type="file" style="display: none" id="level" accept=".snetlvl"><img src="./images/toolbar/load.png" onclick="document.getElementById('level').click()"/></input></td>
+<td><img src="./images/toolbar/themes.png" onclick="showDiag('ok','<button style=\'width: 100%\' onclick=\'changeTheme(0);ok.play()\'>Yellow</button><br><button style=\'width: 100%\' onclick=\'changeTheme(1);ok.play()\'>Purple</button><button style=\'width: 100%\' onclick=\'changeTheme(2);ok.play()\'>Light</button><button style=\'width: 100%\' onclick=\'changeTheme(3);ok.play()\'>Dark</button>')"/></td>
+<td><img src="./images/toolbar/gamestyles.png" onclick="showDiag('ok','Soon')"/></td>
+<td><img src="./images/toolbar/blocks.png" onclick="showDiag('cancel','<img src=' + brick + ' onclick=\'bluesquare.src = brick;item = `block`;bluesquare.className = `colissionNormal`;showDiag()\'/><img src=' + stone + ' onclick=\'bluesquare.src = stone;item = `block`;showDiag()\'/><img src=' + coin + ' onclick=\'bluesquare.src = coin;item = `block`;showDiag()\'/><img src=' + dirt + ' onclick=\'bluesquare.src = dirt;item = `block`;showDiag()\'/><img src=' + ground + ' onclick=\'bluesquare.src = ground;item = `block`;showDiag()\'/><img src=' + question + ' onclick=\'bluesquare.src = question;item = `block`;showDiag()\'/>')"/></td>
+<td><img src="./images/toolbar/sprites.png" onclick="showDiag('cancel','<img class=\'player\' src=' + mario + ' onclick=\'bluesquare.src = mario;item = `sprite`;bluesquare.className = `player`;showDiag()\'/>')"/></td>
+</tr></tbody></table>
+<!--The blue square where selected items go-->
+<span id="bsBg"><img class="colissionNormal" id="bluesquare" src="./images/blocks/smb/brick.png"/></span>
+<!--Darken thingy-->
+<span id="darken" style="display: none"></span>
+<!--Base tag for dialog boxes-->
+<span id="dialogbox" style="display: none"></span>
+<!--JavaScript-->
+<script src="./javascript.js"></script>
+</body></html>

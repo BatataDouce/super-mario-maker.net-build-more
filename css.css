@@ -1,0 +1,76 @@
+* {
+	cursor: url('./images/cursor.png'),auto;
+}
+img {
+	user-select: none;
+	-moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+	}
+#base {
+	border-spacing: 0px;
+}
+#base td {
+	margin: 0px;
+	padding: 0px;
+}
+#base div {
+	table-layout: fixed;
+	width: 32px;	
+	height: 32px;
+}
+#toolbar {
+	opacity: 0.95;
+	height: 64px;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	border-spacing: 0px;
+}
+#toolbar td {
+	background: linear-gradient(180deg, rgba(231,231,231,1) 0%, rgba(167,167,167,1) 100%);
+}
+#bsBg {
+	opacity: 0.95;
+	height: 64px;
+	width: 64px;
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	background: linear-gradient(180deg, rgba(200,200,255,1) 0%, rgba(127,127,255,1) 100%);
+}
+#bsBg img {
+	top: 25%;
+	left: 25%;
+	position: absolute;
+	border: 1px solid white;
+	width: 32px;
+	height: 32px;
+}
+#darken {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	left: 0px;
+	top: 0px;
+	background: linear-gradient(#000000 0%, rgba(0,0,0,0.25), #000000 100%);
+	opacity: 0.6;
+}
+#dialogbox {
+	position: fixed;
+	width: 50%;
+	height: 50%;
+	left: 25%;
+	top: 25%;
+}
+#limit {
+	overflow-y: scroll;
+	height: calc(100% - 32px);
+}
+#bg {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	left: 0px;
+	top: 0px;
+}
