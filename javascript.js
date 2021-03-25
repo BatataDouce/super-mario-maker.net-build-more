@@ -5,7 +5,7 @@ var gs = "smb"
 item = "block"
 
 //Sounds
-var warning = new Audio("./sounds/Warning.wav");
+var warning = new Audio("./sounds/warning.wav");
 var ok = new Audio("./sounds/ok.wav");
 var removeSFX = new Audio("./sounds/gs/" + gs + "/" + item + "remove.wav")
 
