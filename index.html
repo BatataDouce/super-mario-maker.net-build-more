@@ -52,7 +52,7 @@ input {
 <!--Toolbar-->
 <table id="toolbar"><tbody><tr>
 <td><img src="./images/toolbar/grid.png" onclick="showDiag('choice','<input id=\'gridWidth\' value=\'0\' min=\'1\' style=\'width: 100%\' type=\'number\'/><text style=\'font-size: 32px\'>Grid width</text><br><input id=\'gridHeight\' value=\'0\' min=\'1\' style=\'width: 100%\' type=\'number\'/><text style=\'font-size: 32px;\'>Grid height</text><text id=\'err\' style=\'display: none; color: red\'>The width or height provided is 0 or it is not a number</text>','submitGrid()')"/></td>
-<td><img src="./images/toolbar/options.png" onclick="showDiag('ok','Soon')"/></td>
+<td><img src="./images/toolbar/options.png" onclick="showDiag('ok','Save current theme to cookies <input onchange=\'saveThemeToCookies()\' type=\'checkbox\' id=\'stc\'/>');if(getCookie('stc')) $('#stc').attr('checked','true')"/></td>
 <td><img src="./images/toolbar/save.png" onclick="if(gridSubmited) showDiag('choice','<input id=\'name\' value=\'My level\' style=\'width: 80%\' />.snetlvl<br><text style=\'font-size: 32px\'>Level name</text>','download()'); else showDiag('ok','Please submit a grid first.')"/></td>
 <td><input onchange="loadData()" type="file" style="display: none" id="level" accept=".snetlvl"><img src="./images/toolbar/load.png" onclick="document.getElementById('level').click()"/></input></td>
 <td><img src="./images/toolbar/themes.png" onclick="showDiag('ok','<button style=\'width: 100%\' onclick=\'changeTheme(0);ok.play()\'>Yellow</button><br><button style=\'width: 100%\' onclick=\'changeTheme(1);ok.play()\'>Purple</button><button style=\'width: 100%\' onclick=\'changeTheme(2);ok.play()\'>Light</button><button style=\'width: 100%\' onclick=\'changeTheme(3);ok.play()\'>Dark</button>')"/></td>
