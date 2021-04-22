@@ -1,6 +1,3 @@
-//Current the in use
-currTheme = 0;
-
 //Gamestyle
 var gs = "smb"
 
@@ -128,23 +125,22 @@ function loadData() {
 
 //Changing themes
 function changeTheme(id) {
-	currTheme = id
 	var styleId = document.getElementById("pageTheme");
 	if(id == 0) styleId.innerHTML = "button {background: radial-gradient(circle, rgba(255,239,107,1) 50%, rgba(255,167,0,1) 100%);border: 1px solid black;border-radius: 5px;color: black;}button:hover {border: 2px solid white;color: blue;}#bg {background: linear-gradient(45deg, #ffffbf 0%, #ffdc73 100%);}input {background: #ffffbf;border: 1px solid black;border-radius: 3px;}#dialogbox {background: linear-gradient(180deg, rgba(255,250,124,1) 0%, rgba(255,179,64,1) 100%);border: 2px solid black;border-radius: 5px;}#base div {border: 1px solid black;}#toolbar td {border: 1px solid black;}#bsBg {border: 1px solid black;}* {color: black;}"
 	else if(id == 1) styleId.innerHTML = "button {background: radial-gradient(circle, #e495ff 50%, #bf00ff 100%);border: 1px solid black;border-radius: 5px;color: black;}button:hover {border: 2px solid white;color: blue;}#bg {background: linear-gradient(45deg, #fbecff 0%, #e28aff 100%);}input {background: #fbecff;border: 1px solid black;border-radius: 3px;}#dialogbox {background: linear-gradient(180deg,#f5ceff 0%, #d942ff 100%);border: 2px solid black;border-radius: 5px;}#base div {border: 1px solid black;}#toolbar td {border: 1px solid black;}#bsBg {border: 1px solid black;}* {color: black;}"
 	else if(id == 2) styleId.innerHTML = "button {background: radial-gradient(circle, #ffffff 50%, #dddddd 100%);border: 1px solid black;border-radius: 5px;color: black;}button:hover {border: 2px solid blue;color: blue;}#bg {background: linear-gradient(45deg, #ffffff 0%, #bbbbbb 100%);}input {background: #ffffff;border: 1px solid black;border-radius: 3px;}#dialogbox {background: linear-gradient(180deg, #ffffff 0%, #bbbbbb 100%);border: 2px solid black;border-radius: 5px;}#base div {border: 1px solid black;}#toolbar td {border: 1px solid black;}#bsBg {border: 1px solid black;}* {color: black;}"
 	else if(id == 3) styleId.innerHTML = "button {background: radial-gradient(circle, #1f0028 50%, #000000 100%);border: 1px solid white;border-radius: 5px;color: white;}button:hover {border: 2px solid yellow;color: yellow;}#bg {background: linear-gradient(45deg, #15001c 0%, #000000 100%);}input {background: #000000;border: 1px solid white;border-radius: 3px;color: white}#dialogbox {background: linear-gradient(180deg, #23002f 0%, #000000 100%);border: 2px solid white;border-radius: 5px;}#base div {border: 1px solid white;}#toolbar td {border: 1px solid white;}#bsBg {border: 1px solid white;}* {color: white;}"
+	else if(id == 4) styleId.innerHTML = "button {background: radial-gradient(circle, #b3ff99 50%, #79ff4c 100%);border: 1px solid black;border-radius: 5px;color: black;}button:hover {border: 2px solid white;color: blue;}#bg {background: linear-gradient(45deg, #bfffbf 0%, #00ff40 100%);}input {background: #99ff99;border: 1px solid black;border-radius: 3px;}#dialogbox {background: linear-gradient(180deg, #b3ff99 0%, #79ff4c 100%);border: 2px solid black;border-radius: 5px;}#base div {border: 1px solid black;}#toolbar td {border: 1px solid black;}#bsBg {border: 1px solid black;}* {color: black;}"
+	else if(id == 5) styleId.innerHTML = "button {background: linear-gradient( #FFFFFF 40%, #6787BA 100%);border: 1px solid black;border-radius: 5px;color: black;}button:hover {border: 2px solid blue;color: blue;}#bg {background: linear-gradient(45deg, #8BC7E1 0%, #023F5C 100%);}input {background: #dbecf4;border: 1px solid black;border-radius: 3px;}#dialogbox {background: linear-gradient(180deg, #8BC7E1 0%, #398DB2 100%);border: 2px solid black;border-radius: 5px;}#base div {border: 1px solid black;}#toolbar td {border: 1px solid black;}#bsBg {border: 1px solid black;}* {color: black;}"
+	else if(id == 6) styleId.innerHTML = "button {background: radial-gradient(circle, #d29420 50%, #8f5214 100%);border: 1px solid black;border-radius: 5px;color: black;}button:hover {border: 2px solid white;color: blue;}#bg {background: linear-gradient(45deg, #D19A48 0%, #592E0E 100%);}input {background: #f7d56c;border: 1px solid black;border-radius: 3px;}#dialogbox {background: linear-gradient(180deg, #a87c22 0%, #704010 100%);border: 2px solid black;border-radius: 5px;}#base div {border: 1px solid black;}#toolbar td {border: 1px solid black;}#bsBg {border: 1px solid black;}* {color: black;}"
+	else if(id == 7) styleId.innerHTML = "button {background: radial-gradient(circle, #9b0000 50%, #200000 100%);border: 1px solid white;border-radius: 5px;color: white;}button:hover {border: 2px solid #ffff4c;color: #ffff4c;}#bg {background: linear-gradient(45deg, #b30000 0%, #000000 100%);}input {background: #2d0000;border: 1px solid white;border-radius: 3px;}#dialogbox {background: linear-gradient(180deg, #8c0000 0%, #400000 100%);border: 2px solid white;border-radius: 5px;}#base div {border: 1px solid white;}#toolbar td {border: 1px solid white;}#bsBg {border: 1px solid white;}* {color: white;}"
 	if(getCookie("stc")) document.cookie = "theme=" + id + "; expires=Thu, 18 Dec 9999 12:00:00 UTC";
-
 }
 
 if(getCookie("stc")) changeTheme(getCookie("theme"))
 //For saving the current theme to cookies
 function saveThemeToCookies() {
-	if($('#stc:checked').length) {
-		document.cookie = "stc=true; expires=Thu, 18 Dec 9999 12:00:00 UTC";
-		document.cookie = "theme=" + currTheme + "; expires=Thu, 18 Dec 9999 12:00:00 UTC"
-	}
+	if($('#stc:checked').length) document.cookie = "stc=true; expires=Thu, 18 Dec 9999 12:00:00 UTC";
 	else  {
 		document.cookie = "stc=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 		document.cookie = "theme=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
