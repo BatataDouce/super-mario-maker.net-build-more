@@ -1,5 +1,6 @@
 const diag = document.getElementById("dialogbox");
 var borderId = document.getElementById("baseBorder");
+var whichType = 0;
 
 //Gamestyle
 var gs = "smb"
@@ -179,12 +180,14 @@ function getCookie(cname) {
   return "";
 }
 
-function getBase64() {
+function getBase64(type) {
 	var file = document.getElementById("files").files[0];
 	var reader = new FileReader();
 	reader.readAsDataURL(file);
     reader.onload = function () {
 	bluesquare.src = reader.result;
+	if(type == 0)bluesquare.className = "block"
+	else if(type == 1)bluesquare.className = "sprite"
    };
 }
 
