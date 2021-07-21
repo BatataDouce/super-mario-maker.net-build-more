@@ -29,9 +29,6 @@ input {
 	border: 2px solid black;
 	border-radius: 5px;
 }
-#base div {
-	border: 1px solid black;
-}
 #toolbar td {
 	border: 1px solid black;
 }
@@ -41,6 +38,14 @@ input {
 * {
 	color: black;
 }
+</style>
+<style id="baseBorder">#base div {
+border: 1px solid black;
+}</style>
+<style id="gridBg">
+	#base div {
+		background-color: #5C94FC;
+	}
 </style>
 <!--Body start-->
 </head>
@@ -52,20 +57,21 @@ input {
 <!--Toolbar-->
 <table id="toolbar"><tbody><tr>
 <td><img src="./images/toolbar/grid.png" onclick="showDiag('choice','<input id=\'gridWidth\' value=\'0\' min=\'1\' style=\'width: 100%\' type=\'number\'/><text style=\'font-size: 32px\'>Grid width</text><br><input id=\'gridHeight\' value=\'0\' min=\'1\' style=\'width: 100%\' type=\'number\'/><text style=\'font-size: 32px;\'>Grid height</text><text id=\'err\' style=\'display: none; color: red\'>The width or height provided is 0 or it is not a number</text>','submitGrid()')"/></td>
-<td><img src="./images/toolbar/options.png" onclick="showDiag('ok','Save current theme to cookies <input onchange=\'saveThemeToCookies()\' type=\'checkbox\' id=\'stc\'/>');if(getCookie('stc')) $('#stc').attr('checked','true')"/></td>
+<td><img src="./images/toolbar/options.png" onclick="showDiag('ok','Save current theme to cookies <input onchange=\'saveThemeToCookies()\' type=\'checkbox\' id=\'stc\'/><br>Hide grid <input onchange=\'toggleGrid()\' type=\'checkbox\' id=\'hideGrid\'/>');if(getCookie('stc')) {$('#stc').attr('checked','true')} else if(borderId.innerHTML == '') {$('#hideGrid').attr('checked','true')}"/></td>
 <td><img src="./images/toolbar/save.png" onclick="if(gridSubmited) showDiag('choice','<input id=\'name\' value=\'My level\' style=\'width: 80%\' />.snetlvl<br><text style=\'font-size: 32px\'>Level name</text>','download()'); else showDiag('ok','Please submit a grid first.')"/></td>
 <td><input onchange="loadData()" type="file" style="display: none" id="level" accept=".snetlvl"><img src="./images/toolbar/load.png" onclick="document.getElementById('level').click()"/></input></td>
-<td><img src="./images/toolbar/themes.png" onclick="showDiag('ok','<button style=\'width: 100%\' onclick=\'changeTheme(0);ok.play()\'>Yellow</button><br><button style=\'width: 100%\' onclick=\'changeTheme(1);ok.play()\'>Purple</button><button style=\'width: 100%\' onclick=\'changeTheme(4);ok.play()\'>Green</button><button style=\'width: 100%\' onclick=\'changeTheme(5);ok.play()\'>Blue</button><button style=\'width: 100%\' onclick=\'changeTheme(6);ok.play()\'>Bronze</button><button style=\'width: 100%\' onclick=\'changeTheme(7);ok.play()\'>Red</button><button style=\'width: 100%\' onclick=\'changeTheme(2);ok.play()\'>Light</button><button style=\'width: 100%\' onclick=\'changeTheme(3);ok.play()\'>Dark</button>')"/></td>
-<td><img src="./images/toolbar/gamestyles.png" onclick="showDiag('ok','Soon')"/></td>
-<td><img src="./images/toolbar/blocks.png" onclick="showDiag('cancel','<img src=' + brick + ' onclick=\'bluesquare.src = brick;item = `block`;bluesquare.className = `colissionNormal`;showDiag()\'/><img src=' + stone + ' onclick=\'bluesquare.src = stone;item = `block`;showDiag()\'/><img src=' + coin + ' onclick=\'bluesquare.src = coin;item = `block`;showDiag()\'/><img src=' + dirt + ' onclick=\'bluesquare.src = dirt;item = `block`;showDiag()\'/><img src=' + ground + ' onclick=\'bluesquare.src = ground;item = `block`;showDiag()\'/><img src=' + question + ' onclick=\'bluesquare.src = question;item = `block`;showDiag()\'/>')"/></td>
-<td><img src="./images/toolbar/sprites.png" onclick="showDiag('cancel','<img class=\'player\' src=' + mario + ' onclick=\'bluesquare.src = mario;item = `sprite`;bluesquare.className = `player`;showDiag()\'/>')"/></td>
+<td><img src="./images/toolbar/themes.png" onclick="showDiag('ok','<button style=\'width: 100%\' onclick=\'changeTheme(0);okSound()\'>Yellow</button><br><button style=\'width: 100%\' onclick=\'changeTheme(1);okSound()\'>Purple</button><button style=\'width: 100%\' onclick=\'changeTheme(4);okSound()\'>Green</button><button style=\'width: 100%\' onclick=\'changeTheme(5);okSound()\'>Blue</button><button style=\'width: 100%\' onclick=\'changeTheme(6);okSound()\'>Caramel</button><button style=\'width: 100%\' onclick=\'changeTheme(7);okSound()\'>Red</button><button style=\'width: 100%\' onclick=\'changeTheme(2);okSound()\'>Light</button><button style=\'width: 100%\' onclick=\'changeTheme(3);okSound()\'>Dark</button>')"/></td>
+<td><img src="./images/toolbar/gamestyles.png" onclick="showDiag('cancel','<img src=\'./images/smb.png\' onmouseover=\'setGsName(0)\' onclick=\'gs = `smb`;updateGS();showDiag()\' style=\'width: 64px\'/><img src=\'./images/smbs.png\' onmouseover=\'setGsName(1)\' onclick=\'gs = `smbs`;updateGS();showDiag()\' style=\'width: 64px\'/><br><a id=\'gamestyleName\' style=\'text-align: center;left: 0px;width: 100%;bottom: 32px;position: absolute\'></a>')"/></td>
+<td><img src="./images/toolbar/blocks.png" onclick="showDiag('customB','<img src=' + brick + ' onmouseover=\'setBlockName(0)\' onclick=\'bluesquare.src = brick;bluesquare.className = `block`;showDiag()\'/><img src=' + stone + ' onmouseover=\'setBlockName(1)\' onclick=\'bluesquare.src = stone;bluesquare.className = `block`;showDiag()\'/><img src=' + coin + ' onmouseover=\'setBlockName(2)\' onclick=\'bluesquare.src = coin;bluesquare.className = `block`;showDiag()\'/><img src=' + dirt + ' onmouseover=\'setBlockName(3)\' onclick=\'bluesquare.src = dirt;bluesquare.className = `block`;showDiag()\'/><img src=' + ground + ' onmouseover=\'setBlockName(4)\' onclick=\'bluesquare.src = ground;bluesquare.className = `block`;showDiag()\'/><img src=' + question + ' onmouseover=\'setBlockName(5)\' onclick=\'bluesquare.src = question;bluesquare.className = `block`;showDiag()\'/><a id=\'blockName\' style=\'text-align: center;left: 0px;width: 100%;bottom: 32px;position: absolute\'></a>','showDiag();$(`#files`).click()');$('img').attr('draggable','false');"/></td>
+<td><img src="./images/toolbar/sprites.png" onclick="showDiag('customS','<img src=' + mario + ' onmouseover=\'setSpriteName(0)\' onclick=\'bluesquare.src = mario;bluesquare.className = `sprite`;showDiag()\'/><img src=' + goomba + ' onmouseover=\'setSpriteName(1)\' onclick=\';bluesquare.src = goomba;bluesquare.className = `sprite`;showDiag()\'/><a id=\'spriteName\' style=\'text-align: center;left: 0px;width: 100%;bottom: 32px;position: absolute\'></a>','showDiag();$(`#files`).click()');$('img').attr('draggable','false')"/></td>
 </tr></tbody></table>
 <!--The blue square where selected items go-->
-<span id="bsBg"><img class="colissionNormal" id="bluesquare" src="./images/blocks/smb/brick.png"/></span>
+<span id="bsBg"><img class="block" id="bluesquare" src="./images/blocks/smb/brick.png"/></span>
 <!--Darken thingy-->
 <span id="darken" style="display: none"></span>
 <!--Base tag for dialog boxes-->
 <span id="dialogbox" style="display: none"></span>
 <!--JavaScript-->
 <script src="./javascript.js"></script>
+<input style="bottom:0px; position: fixed;visibility: hidden" type="file" id="files" accept=".png,.jpg,.gif,.webP,.bmp,.tiff"  onchange="getBase64()"/>
 </body></html>
