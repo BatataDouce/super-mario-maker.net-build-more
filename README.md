@@ -40,5 +40,5 @@ SMM.NET Site: https://koopthekoopa.github.io/SuperMarioMakerNETWeb/
 # Legal info
 THIS IS NO WAY PLANNED NOR AFFILIATED WITH NINTENDO!
 
-Copyright (C) 2022 SMM.NET Development Team<br>
+Copyright (C) 2020-2022 SMM.NET Development Team<br>
 All sprites, music, gradients and other content are all a property of their respective owners.
